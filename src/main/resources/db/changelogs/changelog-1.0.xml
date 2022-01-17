@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet author="haroon" id="new-book-table">
+        <createTable tableName="BOOK">
+            <column name="id" type="integer">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="varchar(100)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="isbn" type="varchar(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="publicationyear" type="smallint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="haroon" id="new-book-sequence">
+        <createSequence sequenceName="SEQ_BOOK" minValue="1" maxValue="99999999999999" incrementBy="1" startValue="1"
+                        cacheSize="5" cycle="true" />
+    </changeSet>
+</databaseChangeLog>

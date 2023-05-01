@@ -2,6 +2,7 @@ package com.sample.instant.reactive.domain.book;
 
 import com.sample.instant.reactive.book.BookRepo;
 import io.quarkus.hibernate.reactive.panache.Panache;
+import io.quarkus.hibernate.reactive.panache.common.WithSession;
 import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
@@ -40,6 +41,7 @@ public class BookResource implements BookAPI {
     }
 
     @Override
+    @WithSession
     public Uni<List<Book>> findAllBooks() {
         return Book.listAll();
     }

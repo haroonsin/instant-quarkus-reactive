@@ -6,8 +6,8 @@ import io.smallrye.mutiny.Multi;
 import io.smallrye.mutiny.Uni;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
-import javax.inject.Inject;
-import javax.ws.rs.core.Response;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.core.Response;
 import java.net.URI;
 import java.util.List;
 
@@ -46,7 +46,7 @@ public class BookResource implements BookAPI {
 
     @Override
     public Multi<Post> findAllBookPosts() {
-        return bookRepo.listAll()
+        return findAllBooks()
                 .onItem().transformToMulti(books -> Multi.createFrom().iterable(books))
                 .onItem().transformToUniAndMerge(book -> postApiClient.getPost((long) book.getIsbn().charAt(0)));
     }

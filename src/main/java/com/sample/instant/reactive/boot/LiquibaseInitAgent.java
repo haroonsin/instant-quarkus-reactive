@@ -13,8 +13,8 @@ import liquibase.resource.ResourceAccessor;
 import lombok.extern.slf4j.Slf4j;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.enterprise.event.Observes;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.enterprise.event.Observes;
 
 /**
  * Bean used to configure the liquibase execution. This hack is required because liquibase needs jdbc datasource whereas
